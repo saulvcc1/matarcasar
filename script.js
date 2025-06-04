@@ -1,19 +1,53 @@
-const nombres = ["Saúl", "Mariana", "Batres", "Litzy", "Alejandro", "Yajaira", "Karla", "Alejandro", "Rashad", "Daniela"];
+const originalNombres = ["Saúl", "Mariana", "Batres", "Litzy", "Alejandro", "Yajaira", "Karla", "Alejandro", "Rashad", "Daniela","Changuillo","Stripper"];
+let nombres = [];
 let index = 0;
 
-const usedActions = {
+let usedActions = {
   "Casar 💍": false,
   "Matar 💀": false,
   "Coger 🔥": false
 };
 
-const resultados = [];
+let resultados = [];
 
 const questionBox = document.getElementById("questionBox");
 const questionText = document.getElementById("questionText");
 const optionsDiv = document.getElementById("options");
 const endScreen = document.getElementById("endScreen");
 const finalScore = document.getElementById("finalScore");
+
+// Crear botón de reinicio
+const restartBtn = document.createElement("button");
+restartBtn.textContent = "🔁 Volver a jugar";
+restartBtn.style.marginTop = "20px";
+restartBtn.style.padding = "10px 20px";
+restartBtn.style.fontSize = "16px";
+restartBtn.style.backgroundColor = "#6a0572";
+restartBtn.style.color = "white";
+restartBtn.style.border = "none";
+restartBtn.style.borderRadius = "8px";
+restartBtn.style.cursor = "pointer";
+restartBtn.onclick = reiniciarJuego;
+
+endScreen.appendChild(restartBtn);
+
+function barajar(array) {
+  return array.sort(() => Math.random() - 0.5);
+}
+
+function iniciarJuego() {
+  nombres = barajar([...originalNombres]);
+  index = 0;
+  resultados = [];
+  usedActions = {
+    "Casar 💍": false,
+    "Matar 💀": false,
+    "Coger 🔥": false
+  };
+  endScreen.style.display = "none";
+  questionBox.style.display = "block";
+  mostrarPregunta();
+}
 
 function mostrarPregunta() {
   if (index >= nombres.length || Object.values(usedActions).every(val => val)) {
@@ -22,7 +56,6 @@ function mostrarPregunta() {
   }
 
   const nombreActual = nombres[index];
-  questionBox.style.display = "block";
   questionText.textContent = `¿Qué harías con ${nombreActual}?`;
 
   optionsDiv.innerHTML = "";
@@ -55,4 +88,9 @@ function mostrarFinal() {
   finalScore.innerHTML = resultados.map(r => `<p>${r}</p>`).join("");
 }
 
-mostrarPregunta();
+function reiniciarJuego() {
+  iniciarJuego();
+}
+
+// Inicia el juego por primera vez
+iniciarJuego();
