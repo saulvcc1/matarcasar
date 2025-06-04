@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Casar, Matar o Coger - Vizcaya Edition</title>
+  <title>Besar, Matar o Coger - Vizcaya Edition</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 
@@ -189,7 +189,7 @@
 
   <canvas id="background"></canvas>
 
-  <h1>Casar 💍 Matar 💀 o Coger 🔥 Vizcaya</h1>
+  <h1>Besar 💍 Matar 💀 o Coger 🔥 Pendejos</h1>
 
   <div id="questionBox">
     <h2 id="questionText">¿A quién eliges para...?</h2>
@@ -205,19 +205,24 @@
   <script>
     // Datos para el juego
     let playersOriginal = [
-      "Saúl",
-      "Mariana",
-      "Batres",
-      "Litzy",
-      "Alejandro",
-      "Yajaira",
-      "Karla",
-      "Alejandro",
-      "Rashad",
-      "Daniela"
+  "Saúl",
+  "Michelle G",
+  "Tere EV",
+  "Yarey",
+  "Arath",
+  "Carlos",
+  "Jorge",
+  "Samu",
+  "Nicole Fdz",
+  "Jeyka",
+  "Ivy",
+  "Titi",
+  "Dayanna",
+  "Sol",
+  "Mariel"
     ];
 
-    const actions = ["Casar 💍", "Matar 💀", "Coger 🔥"];
+    const actions = ["Besar", "Matar 💀", "Coger 🔥"];
 
     // Función para mezclar el arreglo - algoritmo Fisher-Yates
     function shuffle(array) {
@@ -300,7 +305,7 @@
       endScreen.style.display = 'block';
 
       // Crear strings con nombres agrupados por acción
-      let casarList = results.filter(r => r.action.startsWith("Casar")).map(r => r.player);
+      let besarList = results.filter(r => r.action.startsWith("Besar")).map(r => r.player);
       let matarList = results.filter(r => r.action.startsWith("Matar")).map(r => r.player);
       let cogerList = results.filter(r => r.action.startsWith("Coger")).map(r => r.player);
 
@@ -310,9 +315,9 @@
       }
 
       finalScore.textContent = 
-        `💍 Casaste con: ${formatList(casarList)}\n` +
+        `te besaste a: ${formatList(besarList)}\n` +
         `💀 Mataste a: ${formatList(matarList)}\n` +
-        `🔥 Cogiste a: ${formatList(cogerList)}`;
+        `puerco Cogiste a: ${formatList(cogerList)}`;
     }
 
     // Reiniciar juego
@@ -413,6 +418,18 @@
     animate();
 
   </script>
+    ...
+
+  <script>
+    /* Aquí va tu código JS */
+  </script>
+
+  <a id="instagramFollow" href="https://instagram.com/saulvcc" target="_blank" rel="noopener noreferrer">
+    Sígueme en Instagram @saulvcc
+  </a>
+
+</body>
+
 
 </body>
 </html>
